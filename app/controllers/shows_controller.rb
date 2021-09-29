@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
   
   def index
     shows = Show.all
-    render json: shows.as_json
+    render json: shows
   end
 
   def create
@@ -28,7 +28,7 @@ class ShowsController < ApplicationController
 
   def show
     show = Show.find_by(id: params[:id])
-    render json: show.as_json
+    render json: show
   end
 
   def update
