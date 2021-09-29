@@ -11,8 +11,11 @@ class ActorsController < ApplicationController
       gender: params[:gender],
       hometown: params[:hometown],
     )
-    actor.save
-    render json: actor.as_json
+    if actor.save
+      render json: { message: "Actor created successfully" }, status: :created
+    else
+      render json: { errors: actor.errors.full_messages }, status: :bad_request
+    end
   end
 
   def show
@@ -27,8 +30,11 @@ class ActorsController < ApplicationController
     actor.gender = params[:gender] || actor.gender
     actor.hometown = params[:hometown] || actor.hometown
    
-    actor.save
-    render json: actor.as_json
+    if actor.save
+      render json: { message: "Actor updated successfully" }
+    else
+      render json: { errors: actor.errors.full_messages }, status: :bad_request
+    end
   end
 
   def destroy
