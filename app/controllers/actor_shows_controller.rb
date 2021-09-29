@@ -21,7 +21,7 @@ class ActorShowsController < ApplicationController
   def update
     actor_shows = ActorShow.find_by(id: params[:id])
     actor_shows.actor_id = params[:actor_id] || actor_shows.actor_id
-    actor_shows.show_id = params[:show_id] || actor.show_id
+    actor_shows.show_id = params[:show_id] || actor_shows.show_id
     if actor_shows.save
       render json: { message: "ActorShows updated successfully." }
     else
