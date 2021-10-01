@@ -13,7 +13,7 @@ class ShowsController < ApplicationController
       creator: params[:creator],
       seasons: params[:seasons],
       network: params[:network],
-      favorite: params[:favorite],
+      favorite: false,
       image: params[:image],
       favorite: params[:favorite],
       user_id: params[:user_id],
